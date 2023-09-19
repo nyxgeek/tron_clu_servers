@@ -1,0 +1,13 @@
+#
+# update your /etc/hosts file to include
+
+#127.0.1.1 CLU CLU
+#127.0.0.1 localhost
+
+# The following lines are desirable for IPv6 capable hosts
+#::1 localhost ip6-localhost ip6-loopback
+#ff02::1 ip6-allnodes
+#ff02::2 ip6-allrouters
+
+#your tron server IP here
+192.168.1.1 tronserver

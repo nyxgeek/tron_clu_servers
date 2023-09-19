@@ -1,0 +1,47 @@
+1. To edit crontab:
+	crontab -e
+
+2. Select nano
+
+3. Copy and paste the following lines at the end of the file.
+
+WARNING: do not copy this from nano, as it does not wrap text. cat this file instead and copy from there.
+
+######## COPY BELOW THIS ########
+
+# backup sql db every day at 5 am
+0 5 * * * mysqldump -u root azuredb > /root/BACKUPS/azuredb_backup_latest.sql
+
+# check the status of your CLU machines, write to web directory
+*/3 * * * * /root/SCRIPTS/checkCLUs_html.sh > /var/www/html/latest_status.tmp.html; mv /var/www/html/latest_status.tmp.html /var/www/html/latest_status.html
+
+# create a new graph of total found, daily at 00:05 hrs
+5 0 * * * /root/SCRIPTS/graph_totals.sh
+
+# update our progress spool and weekly graph - every 10 minutes
+*/10 * * * * /root/SCRIPTS/progress_spool.sh
+
+
+######## COPY ABOVE THIS ########
+
+
+4. CTRL-o to OUTPUT the file (save)
+
+
+5. CTRL-x to quit
+
+This will install the crontab. 
+
+
+
+6. To verify, run:
+
+	crontab -l
+
+and you should see a list of the jobs
+
+
+Done!
+
+
+EOF

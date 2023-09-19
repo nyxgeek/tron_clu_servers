@@ -1,0 +1,3 @@
+#!/bin/bash
+COMMAND=$1
+while read line; do echo -n "$line: "; ssh -o "StrictHostKeyChecking no" -n root@$line "$COMMAND"; echo "";done < /root/CLIENTS.txt

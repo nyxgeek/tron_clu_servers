@@ -1,0 +1,3 @@
+#!/bin/bash
+time=`date -d '4 hours ago' +%s`
+mysql -t -u root onedrive_db -e "select domain_name,COUNT(email_address) from onedrive_enum WHERE scrape_date_unix>$time GROUP BY domain_name ORDER BY COUNT(email_address) DESC;"
