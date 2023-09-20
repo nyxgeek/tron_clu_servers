@@ -1,0 +1,2 @@
+#!/bin/bash
+while read line; do echo -n "$line: "; ssh -o "StrictHostKeyChecking no" -n root@$line "touch /tmp/PAUSEFILE"; echo "";done < /root/CLIENTS.txt
