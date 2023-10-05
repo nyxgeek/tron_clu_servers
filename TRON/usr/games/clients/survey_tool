@@ -1,0 +1,6 @@
+#!/bin/bash
+while read line; do
+    tenant=`echo $line | cut -d, -f1`
+    domain=`echo $line | cut -d, -f2`
+    python3 ./onedrive_enum.py -T150 -t ${tenant} -d ${domain} -U USERNAMES/survey_script_175_v1/
+done < $1
