@@ -1,0 +1,8 @@
+#!/bin/bash
+
+while read line; do
+    tenant=`echo $line | cut -d, -f1`
+    domain=`echo $line | cut -d, -f2`
+    format=`echo $line | cut -d, -f3`
+    python3 ./onedrive_enum.py -T150 -t ${tenant} -d ${domain} -p USERNAMES/PLAYLISTS_v1/${format} -x
+done < $1
